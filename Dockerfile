@@ -12,5 +12,5 @@ ENV discovery.type=single-node
 ENV xpack.security.enabled=false
 
 # Command khởi động Elasticsearch
-CMD ["bin/elasticsearch", "-Ehttp.port=${PORT:9200}"]
+CMD ["bin/elasticsearch", "-Ehttp.port=${PORT:9200}", "-Ehttp.host=0.0.0.0"]
 
