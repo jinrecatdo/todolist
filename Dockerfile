@@ -5,7 +5,7 @@ FROM docker.elastic.co/elasticsearch/elasticsearch:8.11.1
 # RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-icu
 RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-icu
 # Expose port 9200 để Render detect
-EXPOSE 9200
+EXPOSE 9200 9300
 
 # Thiết lập node single-node, tắt security để deploy nhanh
 ENV discovery.type=single-node
