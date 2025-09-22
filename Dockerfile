@@ -1,5 +1,5 @@
 # Dùng image chính thức của Elasticsearch
-FROM docker.elastic.co/elasticsearch/elasticsearch:8.11
+FROM docker.elastic.co/elasticsearch/elasticsearch:8.11.1
 
 # Cài thêm plugin nếu cần, ví dụ analysis-icu
 # RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-icu
