@@ -1,8 +1,15 @@
-    git# syntax=docker/dockerfile:1
+# Dùng image chính thức của Elasticsearch
+FROM docker.elastic.co/elasticsearch/elasticsearch:8.11
 
-FROM node:22-alpine
-WORKDIR /app
-COPY . .
-RUN yarn install --production
-CMD ["node", "src/index.js"]
+# Cài thêm plugin nếu cần, ví dụ analysis-icu
+# RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-icu
+RUN /usr/share/elasticsearch/bin/elasticsearch-plugin install analysis-icu
+# Expose port 9200 để Render detect
+EXPOSE 9200
 
+# Thiết lập node single-node, tắt security để deploy nhanh
+ENV discovery.type=single-node
+ENV xpack.security.enabled=false
+
+# Command khởi động Elasticsearch
+CMD ["bin/elasticsearch"]
